@@ -74,45 +74,13 @@ namespace CUAHANGGIAY.Controllers
 
             products = products.Where(p => availableProductIds.Contains(p.MaSP));
 
-            //ViewBag.SizeList = db.SIZEs.Select(s => s.TenSize).Distinct().OrderBy(s => s).ToList();
-            //var mauSPList = db.SANPHAMs.Select(p => p.MauSP).Distinct().ToList();
-            //ViewBag.MauSPList = mauSPList.Any() ? mauSPList : new List<string>();
-
-            //// >>> Thêm 3 ViewBag bị thiếu vào đây:
-            //ViewBag.ThuongHieuList = db.SANPHAMs.Where(s => s.IsDeleted == false)
-            //                        .Select(s => s.ThuongHieu)
-            //                        .Distinct()
-            //                        .ToList();
-
-            //ViewBag.KieuDangList = db.SANPHAMs.Where(s => s.IsDeleted == false)
-            //                        .Select(s => s.KieuDang)
-            //                        .Distinct()
-            //                        .ToList();
-
-            //ViewBag.ChatLieuList = db.SANPHAMs.Where(s => s.IsDeleted == false)
-            //                        .Select(s => s.ChatLieu)
-            //                        .Distinct()
-            //                        .ToList();
+           
 
             LoadSidebarData();
             return View(products.ToList());
         }
 
-        //public JsonResult GetDanhMucCon(string danhMucCha)
-        //{
-        //    if (string.IsNullOrEmpty(danhMucCha))
-        //    {
-        //        return Json(new { data = new List<string>() }, JsonRequestBehavior.AllowGet);
-        //    }
-
-        //    var danhMucCon = db.DANHMUCs
-        //        .Where(dm => dm.DanhMucCha == danhMucCha && dm.IsDeleted == false)
-        //        .Select(dm => new { dm.MaDM, dm.TenDM })
-        //        .ToList();
-
-        //    return Json(new { data = danhMucCon }, JsonRequestBehavior.AllowGet);
-        //}
-
+        
         public JsonResult GetProductsByCategory(string categoryId)
         {
             // Lấy các sản phẩm có ít nhất 1 size còn hàng
